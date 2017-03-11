@@ -1,0 +1,25 @@
+.Spinner {
+  animation: Rotate 1.4s linear infinite;
+}
+
+.Spinner .Spinner-item {
+  transform-origin: center;
+  animation-name: SpinFade;
+  animation-duration: 1.4s;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes Rotate {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes SpinFade {
+  20% {
+    opacity: .3;
+  }
+  100% {
+    opacity: 1;
+  }
+}

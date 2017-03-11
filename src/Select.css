@@ -1,0 +1,29 @@
+.Select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  padding: 0 16px;
+  line-height: 40px;
+  box-sizing: border-box;
+  border: 1px solid #404040;
+  border-radius: 4px;
+
+  &.is-disabled {
+    cursor: not-allowed;
+  }
+
+  .Icon {
+    margin-left: auto;
+  }
+
+  .popover {
+    top: 0;
+    left: 0;
+  }
+}
+
+.Select-title {
+  color: #96a3b3;
+}

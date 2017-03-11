@@ -1,0 +1,87 @@
+.Dialog-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  display: flex;
+  background: rgba(0, 0, 0, .65);
+}
+
+.Dialog-content {
+  box-sizing: border-box;
+  position: relative;
+  margin: auto;
+  padding: 24px;
+  width: 400px;
+  border: 1px solid #cbcbcb;
+  border-radius: 2px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, .3);
+  background-color: #fff;
+
+  &.Dialog--plain {
+    padding: 40px 24px 32px;
+  }
+
+  .field {
+    margin-bottom: 1.5em;
+
+    .field-left {
+      width: 8em;
+      color: #404040;
+    }
+  }
+}
+
+.Dialog-header {
+  text-align: center;
+  margin: 16px auto 24px;
+}
+
+.Dialog-title {
+  font-size: 24px;
+  color: #404040;
+  margin-bottom: 6px;
+}
+
+.Dialog-subtitle {
+  font-size: 14px;
+  color: #9aaabf;
+}
+
+.Dialog-close {
+  position: absolute;
+  right: -24px;
+  top: 10px;
+  transform: translateX(100%);
+  cursor: pointer;
+}
+
+.Dialog-message {
+  margin-bottom: 36px;
+  color: #354052;
+  font-size: 18px;
+}
+
+.Dialog-buttonGroup {
+  display: flex;
+  align-items: center;
+
+  .Button {
+    flex: 1 0;
+  }
+
+  .Button + .Button {
+    margin-left: 24px;
+  }
+}
+
+.Dialog-extra {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+  color: #96a3b3;
+  line-height: 1.8;
+}

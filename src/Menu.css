@@ -1,0 +1,28 @@
+.Menu {
+  width: 100%;
+  padding: 8px 0;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  box-shadow: 0 10px 10px 3px rgba(0, 0, 0, .15);
+  line-height: normal;
+  text-align: left;
+}
+
+.MenuItem {
+  padding: 8px 16px;
+  color: #404040;
+  cursor: auto;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+
+  &.is-disabled,
+  &.is-disabled > a {
+    cursor: not-allowed;
+    pointer-events: none;
+    color: #eee;
+  }
+}
