@@ -1,0 +1,35 @@
+.app {
+  padding: 24px 16px;
+}
+
+.name {
+  margin: auto auto 40px;
+  max-width: 600px;
+  color: #666;
+  font-size: 2.5em;
+  font-weight: 500;
+}
+
+.demo {
+  margin: auto;
+  padding: 24px 0 40px;
+  border-bottom: 2px dashed #c5ccd6;
+  max-width: 600px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  padding: 8px 16px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 2px;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, .15);
+  font-size: 16px;
+  color: #404040;
+}
