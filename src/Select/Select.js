@@ -1,21 +1,29 @@
 import React, {Component, PropTypes} from 'react'
 import {findDOMNode} from 'react-dom'
 import cx from 'classnames'
-import SVGIcon from './SVGIcon'
-import Popover from './Popover'
-import EventsJar from './EventsJar'
-import Menu from './Menu'
+import SVGIcon from '../SVGIcon'
+import Popover from '../Popover'
+import EventsJar from '../EventsJar'
+import Menu from '../Menu'
+import Option from './Option'
 import './Select.css'
 
-export default class Select extends Component {
+class Select extends Component {
   static propTypes = {
     id: PropTypes.string,
     style: PropTypes.object,
     bordered: PropTypes.bool,
     disabled: PropTypes.bool,
+    renderOption: PropTypes.func,
     options: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
-    onSelect: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+  }
+
+  static defaultProps = {
+    renderOption: ({value, ...rest}) => (
+      <Option {...rest} value={value} key={value} />
+    )
   }
 
   constructor(props) {
@@ -38,10 +46,13 @@ export default class Select extends Component {
     this.setState({showOptions: !this.state.showOptions})
   }
 
-  handleSelect = (item) => {
-    this.props.onSelect(item.value)
-    const selected = item.value === '' ? null : item
-    this.setState({selected, showOptions: false})
+  handleSelect = (selectedValue, index) => {
+    const {value, options, onChange} = this.props
+    if (selectedValue !== value) {
+      const selected = value === '' ? null : options[index]
+      onChange(selectedValue)
+      this.setState({selected, showOptions: false})
+    }
   }
 
   close = () => {
@@ -50,7 +61,7 @@ export default class Select extends Component {
 
   render() {
     const {
-      className, options, bordered, disabled, title, ...rest
+      className, options, bordered, disabled, title, renderOption, ...rest
     } = this.props
     const {selected, showOptions} = this.state
 
@@ -64,14 +75,12 @@ export default class Select extends Component {
         onClick={this.handleClick}
       >
         {selected ? selected.label : <span className="Select-title">{title}</span>}
-        {showOptions && <EventsJar target={document} onClick={this.handleDocumentClick} />}
         <SVGIcon name="select" width={8} />
         <Popover isOpen={showOptions} onClose={this.close}>
+          <EventsJar target={document} onClick={this.handleDocumentClick} />
           <Menu>
-            {options.map((item, index) => (
-              <Menu.Item key={index} onClick={() => { this.handleSelect(item) }}>
-                {item.label}
-              </Menu.Item>
+            {options.map(({label, value}, index) => (
+              renderOption({label, index, value, onClick: this.handleSelect})
             ))}
           </Menu>
         </Popover>
@@ -79,3 +88,5 @@ export default class Select extends Component {
     )
   }
 }
+
+export default Select

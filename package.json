@@ -1,7 +1,7 @@
 {
   "name": "baldr",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors --content-base examples --config examples/webpack.config.js --port 3000",
+    "start": "webpack-dev-server --progress --colors --config examples/webpack.config.js",
     "clean:docs": "rm -rf examples/dist",
     "build:docs": "npm run clean:docs && NODE_ENV=production webpack --colors --progress --config examples/webpack.config.js",
     "deploy:docs": "npm run build:docs && ghpages -p examples/dist"

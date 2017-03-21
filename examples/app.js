@@ -26,7 +26,7 @@ const App = () => (
         ]}
         value={42312}
         title="demo select"
-        onSelect={() => {}}
+        onChange={() => {}}
       />
     </Showcase>
 
@@ -44,7 +44,6 @@ const App = () => (
         </Card.Block>
       </Card>
     </Showcase>
-
   </div>
 )
 

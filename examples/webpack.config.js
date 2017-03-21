@@ -75,8 +75,12 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
   ]),
   devServer: {
+    publicPath: '/',
+    contentBase: joinPath('.'),
+    port: 3000,
     hot: true,
     inline: true,
+    historyApiFallback: true,
     stats: {
       colors: true,
       chunks: false,
