@@ -1,13 +1,15 @@
 import React from 'react'
+import cx from 'classnames'
 import {render} from 'react-dom'
 import Select from 'baldr/Select'
 import Dropdown from 'baldr/Dropdown'
 import Button from 'baldr/Button'
 import Card from 'baldr/Card'
+import Tooltip from 'baldr/Tooltip'
 import styles from './app.css'
 
-const Showcase = ({title, children}) => (
-  <div className={styles.demo}>
+const Showcase = ({title, children, className}) => (
+  <div className={cx(styles.demo, className)}>
     <div className={styles.title}>{title}</div>
     {children}
   </div>
@@ -43,6 +45,23 @@ const App = () => (
           Something Important
         </Card.Block>
       </Card>
+    </Showcase>
+
+    <Showcase title="Tooltip">
+      <div className={styles.btnGroup}>
+        <Tooltip placement="left" tooltip="This is a tip">
+          <Button>Left</Button>
+        </Tooltip>
+        <Tooltip placement="top" tooltip="This is a tip">
+          <Button>Top</Button>
+        </Tooltip>
+        <Tooltip placement="bottom" tooltip="This is a tip">
+          <Button>Bottom</Button>
+        </Tooltip>
+        <Tooltip placement="right" tooltip="This is a tip">
+          <Button>Right</Button>
+        </Tooltip>
+      </div>
     </Showcase>
   </div>
 )

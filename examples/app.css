@@ -23,6 +23,13 @@
   margin-bottom: 20px;
 }
 
+.btnGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 400px;
+}
+
 .dropdown {
   padding: 8px 16px;
   text-align: center;
