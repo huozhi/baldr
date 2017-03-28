@@ -62,17 +62,15 @@ export default class Tooltip extends Component {
   makeOverlay = () => {
     const {placement, tooltip} = this.props
     const style = this.getPositionStyle(placement)
-    return (
+    return this.state.show ? (
       <Portal>
-        {this.state.show &&
-          <div className={cx('Tooltip', `Tooltip--${placement}`)} style={style}>
-            <div className="Tooltip-content" ref={(node) => { this.tooltip = node }}>
-              {tooltip}
-            </div>
+        <div className={cx('Tooltip', `Tooltip--${placement}`)} style={style}>
+          <div className="Tooltip-content" ref={(node) => { this.tooltip = node }}>
+            {tooltip}
           </div>
-        }
+        </div>
       </Portal>
-    )
+    ) : <noscript />
   }
 
   renderOverlay = () => {
@@ -82,7 +80,7 @@ export default class Tooltip extends Component {
   getPositionStyle = (placement) => {
     const style = {}
     const targetOffset = this.targetOffset
-    const bodyRect = document.body.getBoundingClientRect()
+    const bodyRect = document.documentElement.getBoundingClientRect()
 
     const offsetTop = targetOffset.top - bodyRect.top
     const offsetBottom = targetOffset.bottom - bodyRect.top

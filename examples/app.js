@@ -15,6 +15,8 @@ const Showcase = ({title, children, className}) => (
   </div>
 )
 
+const TOOLTIP_CONTENT = 'This is my first tooltip, Yes, it is, Hahha,This is my first tooltip, Yes, it is, HahhaThis is my first tooltip, Yes, it is, Hahha'
+
 const App = () => (
   <div className={styles.app}>
     <div className={styles.name}>Baldr Components</div>
@@ -49,16 +51,16 @@ const App = () => (
 
     <Showcase title="Tooltip">
       <div className={styles.btnGroup}>
-        <Tooltip placement="left" tooltip="This is a tip">
+        <Tooltip placement="left" tooltip={TOOLTIP_CONTENT}>
           <Button>Left</Button>
         </Tooltip>
-        <Tooltip placement="top" tooltip="This is a tip">
+        <Tooltip placement="top" tooltip={TOOLTIP_CONTENT}>
           <Button>Top</Button>
         </Tooltip>
-        <Tooltip placement="bottom" tooltip="This is a tip">
+        <Tooltip placement="bottom" tooltip={TOOLTIP_CONTENT}>
           <Button>Bottom</Button>
         </Tooltip>
-        <Tooltip placement="right" tooltip="This is a tip">
+        <Tooltip placement="right" tooltip={TOOLTIP_CONTENT}>
           <Button>Right</Button>
         </Tooltip>
       </div>
