@@ -31,19 +31,19 @@ class Select extends Component {
     const {value, options} = props
 
     this.state = {
-      showOptions: false,
+      isOpen: false,
       selected: options.find(o => o.value === value),
     }
   }
 
   handleDocumentClick = (e) => {
     if (!findDOMNode(this).contains(e.target)) {
-      this.setState({showOptions: false})
+      this.setState({isOpen: false})
     }
   }
 
   handleClick = () => {
-    this.setState({showOptions: !this.state.showOptions})
+    this.setState({isOpen: !this.state.isOpen})
   }
 
   handleSelect = (selectedValue, index) => {
@@ -51,39 +51,41 @@ class Select extends Component {
     if (selectedValue !== value) {
       const selected = value === '' ? null : options[index]
       onChange(selectedValue)
-      this.setState({selected, showOptions: false})
+      this.setState({selected, isOpen: false})
     }
   }
 
   close = () => {
-    this.setState({showOptions: false})
+    this.setState({isOpen: false})
   }
 
   render() {
     const {
-      className, options, bordered, disabled, title, renderOption, ...rest
+      className, options, bordered, title, renderOption, ...rest
     } = this.props
-    const {selected, showOptions} = this.state
+    const {selected, isOpen} = this.state
 
     return (
       <div
         {...rest}
         className={cx('Select', className, {
-          'Select--bordered': bordered,
-          'is-disabled': disabled || options.length === 0,
+          'is-open': isOpen,
+          'is-disabled': options.length === 0,
         })}
         onClick={this.handleClick}
       >
-        {selected ? selected.label : <span className="Select-title">{title}</span>}
-        <SVGIcon name="select" width={8} />
-        <Popover isOpen={showOptions} onClose={this.close}>
-          <EventsJar target={document} onClick={this.handleDocumentClick} />
-          <Menu>
+        <div className="Select-control">
+          {selected ? selected.label : <span className="Select-title">{title}</span>}
+          <SVGIcon className="Select-icon" name="select" width={8} />
+        </div>
+        {isOpen &&
+          <div className="Select-menu">
+            <EventsJar target={document} onClick={this.handleDocumentClick} />
             {options.map(({label, value}, index) => (
               renderOption({label, index, value, onClick: this.handleSelect})
             ))}
-          </Menu>
-        </Popover>
+          </div>
+        }
       </div>
     )
   }

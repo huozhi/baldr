@@ -13,18 +13,11 @@ export default class Popover extends Component {
     arrow: false,
   }
 
-  handleClick = (e) => {
-    if (e.target.tagName !== 'A') {
-      e.stopPropagation()
-      e.nativeEvent.stopImmediatePropagation()
-    }
-  }
-
   render() {
     const {children, arrow, isOpen, className} = this.props
 
     return isOpen ? (
-      <div className={cx('Popover', className)} onClick={this.handleClick}>
+      <div className={cx('Popover', className)}>
         {arrow && <div className="Popver-arrow" />}
         {children}
       </div>

@@ -1,10 +1,10 @@
 import React from 'react'
-import Menu from '../Menu'
+import './Option.css'
 
 const Option = ({value, index, label, onClick, ...rest}) => (
-  <Menu.Item onClick={() => onClick(value, index)}>
+  <div className="Option" onClick={() => onClick(value, index)}>
     {label}
-  </Menu.Item>
+  </div>
 )
 
 export default Option

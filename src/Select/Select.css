@@ -1,27 +1,45 @@
 .Select {
   position: relative;
-  display: flex;
-  align-items: center;
   cursor: pointer;
   user-select: none;
-  padding: 0 16px;
-  line-height: 40px;
+  box-sizing: border-box;
+}
+
+.Select-control {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
   box-sizing: border-box;
   border: 1px solid #404040;
-  border-radius: 4px;
+  border-radius: 3px;
 
-  &.is-disabled {
-    cursor: not-allowed;
+  &:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
   }
 
-  .Icon {
-    margin-left: auto;
+  .Select.is-open & {
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);;
   }
+}
 
-  .popover {
-    top: 0;
-    left: 0;
-  }
+.Select-menu {
+  margin-top: -1px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  max-height: 480px;
+  border: 1px solid #404040;
+  border-top: 1px solid #999;
+  border-radius: 0 0 3px 3px;
+  background-color: #fff;
+  box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.Select-icon {
+  margin-left: auto;
 }
 
 .Select-title {

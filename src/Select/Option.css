@@ -1,0 +1,10 @@
+.Option {
+  padding: 8px 16px;
+  cursor: auto;
+  white-space: nowrap;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #f8f8f8;
+  }
+}
