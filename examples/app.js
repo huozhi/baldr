@@ -4,6 +4,7 @@ import {render} from 'react-dom'
 import Select from 'baldr/Select'
 import Dropdown from 'baldr/Dropdown'
 import Button from 'baldr/Button'
+import Autocomplete from 'baldr/Autocomplete'
 import Card from 'baldr/Card'
 import Tooltip from 'baldr/Tooltip'
 import styles from './app.css'
@@ -20,6 +21,16 @@ const TOOLTIP_CONTENT = 'This is my first tooltip, Yes, it is, Hahha,This is my 
 const App = () => (
   <div className={styles.app}>
     <div className={styles.name}>Baldr Components</div>
+    <Showcase title="Autocomplete">
+      <Autocomplete
+        options={[
+          {label: '1124123', value: 12312},
+          {label: '2124123', value: 22312},
+          {label: '3124123', value: 32312},
+          {label: '4124123', value: 42312},
+        ]}
+      />
+    </Showcase>
     <Showcase title="Select">
       <Select
         options={[
