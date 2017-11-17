@@ -9,6 +9,7 @@ const KEY_MAP = {
 class Autocomplete extends React.Component {
   static defaultProps = {
     onChange() {},
+    onInputChange() {},
   }
 
   state = {
@@ -39,13 +40,14 @@ class Autocomplete extends React.Component {
   setActiveItem = (action) => {
     const {activeIndex} = this.state
     const {options, onChange} = this.props
+    const lastIndex = options.length - 1
     let nextIndex = activeIndex
     switch (action) {
       case 'prev':
-        nextIndex = Math.max(activeIndex - 1, -1)
+        nextIndex = activeIndex > 0 ? activeIndex - 1 : lastIndex
         break
       case 'next':
-        nextIndex = Math.min(activeIndex + 1, options.length - 1)
+        nextIndex = activeIndex < lastIndex ? activeIndex + 1 : 0
         break
       default:
         break
@@ -59,14 +61,24 @@ class Autocomplete extends React.Component {
     this.open()
   }
 
+  handleInputChange = (e) => {
+    const nextInputValue = e.target.value
+    if (this.state.inputValue !== nextInputValue) {
+      this.setState({inputValue: nextInputValue})
+      this.props.onInputChange(nextInputValue)
+    }
+  }
+
   render() {
-    const {options} = this.props
+    const {options, value} = this.props
     const {isOpen, activeIndex} = this.state
 
     return (
       <div className={css(styles.root)}>
         <input
+          value={value}
           className={css(styles.input)}
+          onChange={this.handleInputChange}
           onKeyDown={this.handleKeydown}
           onFocus={this.handleFocus}
           onBlur={this.close}
@@ -127,4 +139,4 @@ const styles = StyleSheet.create({
 export default Autocomplete
 
 // API
-// <Autocomplete options={} onChange={(value) => {...}} />
+// <Autocomplete options={} value={} onChange={(value) => {...}} />

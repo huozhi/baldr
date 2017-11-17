@@ -8,38 +8,18 @@ import Autocomplete from 'baldr/Autocomplete'
 import Card from 'baldr/Card'
 import Tooltip from 'baldr/Tooltip'
 import styles from './app.css'
-
-const Showcase = ({title, children, className}) => (
-  <div className={cx(styles.demo, className)}>
-    <div className={styles.title}>{title}</div>
-    {children}
-  </div>
-)
-
-const TOOLTIP_CONTENT = 'This is my first tooltip, Yes, it is, Hahha,This is my first tooltip, Yes, it is, HahhaThis is my first tooltip, Yes, it is, Hahha'
+import AutocompleteExample from './AutocompleteExample'
+import Showcase from './Showcase'
+import {OPTIONS, TOOLTIP_CONTENT} from './consts'
 
 const App = () => (
   <div className={styles.app}>
     <div className={styles.name}>Baldr Components</div>
-    <Showcase title="Autocomplete">
-      <Autocomplete
-        options={[
-          {label: '1124123', value: 12312},
-          {label: '2124123', value: 22312},
-          {label: '3124123', value: 32312},
-          {label: '4124123', value: 42312},
-        ]}
-      />
-    </Showcase>
+    <AutocompleteExample />
     <Showcase title="Select">
       <Select
-        options={[
-          {label: '1124123', value: 12312},
-          {label: '2124123', value: 22312},
-          {label: '3124123', value: 32312},
-          {label: '4124123', value: 42312},
-        ]}
-        value={42312}
+        options={OPTIONS}
+        value="A"
         title="demo select"
         onChange={() => {}}
       />
