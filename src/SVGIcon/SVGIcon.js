@@ -3,7 +3,7 @@ import cx from 'classnames'
 import './SVGIcon.css'
 
 const SVGIcon = ({name, size, className, ...rest}) => {
-  const Icon = require(`../icons/${name}.svg`)
+  const Icon = require(`./icons/${name}.svg`)
   const sizes = size && {width: size, height: size}
 
   return (

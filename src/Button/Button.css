@@ -8,20 +8,14 @@
   box-sizing: border-box;
   font-family: inherit;
   padding: 8px 16px;
-  border: 1px solid #404040;
-  border-radius: 4px;
-  background-color: #404040;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 2px;
   color: #fff;
   text-decoration: none;
 
   &.Button-plain {
     background-color: transparent;
     color: #404040;
-  }
-
-  .Icon {
-    display: inline-block;
-    vertical-align: middle;
   }
 
   &[disabled] {

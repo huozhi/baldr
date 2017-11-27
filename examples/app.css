@@ -20,14 +20,3 @@ body {
   justify-content: space-between;
   max-width: 400px;
 }
-
-.dropdown {
-  padding: 8px 16px;
-  text-align: center;
-  background-color: #fff;
-  border-radius: 2px;
-  border: 1px solid #eee;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
-  font-size: 16px;
-  color: #404040;
-}

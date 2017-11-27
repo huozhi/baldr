@@ -3,13 +3,14 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const joinPath = path.join.bind(null, __dirname)
 const isProduction = process.env.NODE_ENV === 'production'
+const publicPath = require('../package.json').name
 
 module.exports = {
   entry: {
     app: [joinPath('app.js')],
   },
   output: {
-    publicPath: isProduction ? '/baldr' : '/',
+    publicPath: isProduction ? `/${publicPath}` : '/',
     path: joinPath('dist'),
     filename: isProduction ? 'app.[hash].js' : 'app.js',
   },

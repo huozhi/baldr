@@ -107,19 +107,21 @@ const styles = StyleSheet.create({
   root: {
     position: 'relative',
     display: 'flex',
+    borderRadius: 2,
     flexDirection: 'column',
   },
   menu: {
     position: 'absolute',
     top: 40,
     left: 0,
-    boxShadow: '0 2px 10px 3px rgba(0, 0, 0, .15)',
+    border: '1px solid rgba(0, 0, 0, .15)',
     borderRadius: 2,
     backgroundColor: '#fff',
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
     zIndex: 10,
+    boxSizing: 'border-box',
   },
   activeItem: {
     backgroundColor: '#f5f5f5',

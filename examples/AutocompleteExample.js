@@ -1,5 +1,5 @@
 import React from 'react'
-import Autocomplete from 'baldr/Autocomplete'
+import Autocomplete from '../src/Autocomplete'
 import Showcase from './Showcase'
 import {OPTIONS} from './consts'
 
@@ -19,7 +19,7 @@ class AutocompleteExample extends React.Component {
           value={this.state.value}
           options={OPTIONS}
           onInputChange={this.handleInputChange}
-          onChange={(value) => { console.debug('selected', value) }}
+          onChange={(value) => { }}
         />
       </Showcase>
     )

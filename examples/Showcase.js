@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
     borderBottom: '2px dashed #c5ccd6',
     maxWidth: 600,
   },
-
   title: {
     fontSize: 18,
     fontWeight: 500,
@@ -18,7 +17,7 @@ const styles = StyleSheet.create({
 
 const Showcase = ({title, children, className}) => (
   <div className={css(styles.demo, className)}>
-    <div className={styles.title}>{title}</div>
+    <div className={css(styles.title)}>{title}</div>
     {children}
   </div>
 )

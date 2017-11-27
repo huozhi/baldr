@@ -1,9 +1,8 @@
 .Popover {
   position: absolute;
   z-index: 3;
-  width: 100%;
   left: 0;
-  top: calc(100% + 8px);
+  top: calc(100%);
 
   .Menu {
     max-height: 400px;

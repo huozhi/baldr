@@ -10,16 +10,11 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  border: 1px solid #404040;
+  border: 1px solid rgba(0, 0, 0, .15);
   border-radius: 3px;
-
-  &:hover {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
-  }
 
   .Select.is-open & {
     border-radius: 3px 3px 0 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);;
   }
 }
 
@@ -29,8 +24,8 @@
   top: 100%;
   width: 100%;
   max-height: 480px;
-  border: 1px solid #404040;
-  border-top: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-top: 1px solid rgba(0, 0, 0, .15);
   border-radius: 0 0 3px 3px;
   background-color: #fff;
   box-sizing: border-box;
