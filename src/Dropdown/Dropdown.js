@@ -2,7 +2,7 @@ import React, {Component, PropTypes, Children, cloneElement} from 'react'
 import {findDOMNode} from 'react-dom'
 import Button from '../Button'
 import Popover from '../Popover'
-import EventsJar from '../EventsJar'
+import {EventsJar} from '../events'
 import './Dropdown.css'
 
 class Dropdown extends Component {

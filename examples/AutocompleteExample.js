@@ -19,7 +19,7 @@ class AutocompleteExample extends React.Component {
           value={this.state.value}
           options={OPTIONS}
           onInputChange={this.handleInputChange}
-          onChange={(value) => { }}
+          onChange={(value) => {console.log('value', value) }}
         />
       </Showcase>
     )

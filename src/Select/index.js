@@ -1,5 +1,2 @@
-import Select from './Select'
-import Option from './Option'
-
-export {Option}
-export default Select
+export {default as Option} from './Option'
+export {default} from './Select'

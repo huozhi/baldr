@@ -1,5 +1,6 @@
 import React from 'react'
 import {css} from 'emotion'
+import {EventsJar} from '../events'
 
 const KEY_MAP = {
   UP: 38,
@@ -53,12 +54,28 @@ class Autocomplete extends React.Component {
         break
     }
     this.setState({activeIndex: nextIndex})
-    const selected = options[nextIndex] != null ? options[nextIndex].value : null
-    onChange(selected)
   }
 
   handleFocus = () => {
     this.open()
+  }
+
+  handleClickOutside = (e) => {
+    if (this.wrap && !this.wrap.contains(e.target)) {
+      this.close()
+    }
+  }
+
+  handleFocusOption = (nextIndex) => {
+    this.setState({activeIndex: nextIndex})
+  }
+
+  handleSelect = (e) => {
+    const {activeIndex} = this.state
+    const {options, onChange} = this.props
+    const selected = (options.length && options[activeIndex] != null) ? options[activeIndex].value : null
+    this.close()
+    onChange(selected)
   }
 
   handleInputChange = (e) => {
@@ -74,20 +91,23 @@ class Autocomplete extends React.Component {
     const {isOpen, activeIndex} = this.state
 
     return (
-      <div className={css(styles.root)}>
+      <div className={css(styles.root)} ref={node => { this.wrap = node }}>
         <input
           value={value}
           className={css(styles.input)}
           onChange={this.handleInputChange}
           onKeyDown={this.handleKeydown}
           onFocus={this.handleFocus}
-          onBlur={this.close}
+          onBlur={this.handleInputBlur}
         />
         {isOpen &&
           <div className={css(styles.menu)}>
             {options.map((item, index) => (
               <div
                 key={`item-${index}`}
+                onMouseEnter={() => this.handleFocusOption(index)}
+                onMouseMove={() => this.handleFocusOption(index)}
+                onClick={this.handleSelect}
                 className={css(
                   styles.item,
                   activeIndex === index && {backgroundColor: '#f5f5f5'}
@@ -96,6 +116,7 @@ class Autocomplete extends React.Component {
                 {item.label}
               </div>
             ))}
+            <EventsJar target={document} onClick={this.handleClickOutside} />
           </div>
         }
       </div>
