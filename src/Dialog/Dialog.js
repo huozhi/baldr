@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import cx from 'classnames'
 import Portal from './Portal'
-// import SVGIcon from './SVGIcon'
 import './Dialog.css'
 
 const DialogHeader = ({title, subtitle}) => (
@@ -41,7 +40,6 @@ class Dialog extends Component {
         {isOpen && (
           <div className="Dialog-overlay">
             <div className={cx('Dialog-content', className, {'Dialog--plain': plain})}>
-              {/* <SVGIcon className="Dialog-close" name="rebecca/close" fill="#fff" size={12} onClick={onClose} /> */}
               {children}
             </div>
           </div>

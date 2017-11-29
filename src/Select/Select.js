@@ -1,11 +1,11 @@
 import React, {Component, PropTypes} from 'react'
 import {findDOMNode} from 'react-dom'
 import cx from 'classnames'
-import SVGIcon from '../SVGIcon'
 import Popover from '../Popover'
 import EventsJar from '../EventsJar'
 import Menu from '../Menu'
 import Option from './Option'
+import {css} from 'emotion'
 import './Select.css'
 
 class Select extends Component {
@@ -76,7 +76,7 @@ class Select extends Component {
       >
         <div className="Select-control">
           {selected ? selected.label : <span className="Select-title">{title}</span>}
-          <SVGIcon className="Select-icon" name="select" width={8} />
+          <span className={css(styles.icon, {transform: `rotate(${isOpen ? -135 : -45}deg)`})} />
         </div>
         {isOpen &&
           <div className="Select-menu">
@@ -90,5 +90,17 @@ class Select extends Component {
     )
   }
 }
+
+const styles = {
+  icon: {
+    display: 'inline-block',
+    marginLeft: 'auto',
+    width: 8,
+    height: 8,
+    borderTop: '1px solid rgba(0, 0, 0, .15)',
+    borderLeft: '1px solid rgba(0, 0, 0, .15)',
+  }
+}
+
 
 export default Select
