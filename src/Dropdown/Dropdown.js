@@ -1,28 +1,30 @@
-import React, {Component, PropTypes, Children, cloneElement} from 'react'
-import {findDOMNode} from 'react-dom'
+import React, {Component, Children, cloneElement} from 'react'
 import Button from '../Button'
 import Popover from '../Popover'
 import {EventsJar} from '../events'
-import './Dropdown.css'
+import {css} from 'emotion'
+
+const styles = {
+  root: {
+    position: 'relative',
+  }
+}
 
 class Dropdown extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    title: PropTypes.string,
-    plain: PropTypes.bool,
-  }
-
   state = {
     showOptions: false
+  }
+
+  handleRef = (node) => {
+    this.element = node
   }
 
   handleToggleDropdown = () => {
     this.setState({showOptions: !this.state.showOptions})
   }
 
-  handleDocumentClick = (e) => {
-    if (!findDOMNode(this).contains(e.target)) {
+  handleClickOutside = (e) => {
+    if (this.element && !this.element.contains(e.target)) {
       this.close()
     }
   }
@@ -32,18 +34,19 @@ class Dropdown extends Component {
   }
 
   render() {
-    const {children, title, disabled, menu, ...rest} = this.props
+    const {children, title, disabled, menu, className, ...rest} = this.props
     const {showOptions} = this.state
 
     return (
-      <div {...rest} className="Dropdown">
+      <div {...rest} ref={this.handleRef} className={css(styles.root, className)}>
         {cloneElement(Children.only(children), {...rest, onClick: this.handleToggleDropdown})}
-        <Popover isOpen={showOptions}>
-          <EventsJar target={document} onClick={this.handleDocumentClick} />
+        <Popover isOpen={showOptions} placement="bottom">
+          <EventsJar target={document} onClick={this.handleClickOutside} />
           {menu}
         </Popover>
       </div>
     )
   }
 }
+
 export default Dropdown

@@ -1,15 +1,10 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import cx from 'classnames'
 
 class InfiniteScroll extends Component {
   static defaultProps = {
     throttle: 0, /* delta throttle of detecting if reaching the bottom */
     onScrollBottom() {},
-  }
-
-  static propTypes = {
-    throttle: PropTypes.number.isRequired,
-    onScrollBottom: PropTypes.func,
   }
 
   componentDidMount() {

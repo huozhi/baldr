@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import cx from 'classnames'
 import Portal from './Portal'
 import './Dialog.css'
@@ -19,14 +19,6 @@ const DialogBody = ({children}) => (
 )
 
 class Dialog extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-    title: PropTypes.string,
-    onClose: PropTypes.func,
-    plain: PropTypes.bool,
-    isOpen: PropTypes.bool.isRequired,
-  }
-
   static defaultProps = {
     isOpen: true, // TODO: 废弃 Modal 后，改为 false
     plain: false,

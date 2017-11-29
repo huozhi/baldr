@@ -151,6 +151,7 @@ const styles = {
   input: {
     flexGrow: 1,
     flexShrink: 0,
+    outline: 'none',
     display: 'block',
     padding: '10px 16px',
   },

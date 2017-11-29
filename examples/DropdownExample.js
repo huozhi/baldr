@@ -7,11 +7,9 @@ import {css} from 'emotion'
 
 const styles = {
   dropdown: {
-    padding: '8px 16px',
     textAlign: 'center',
     backgroundColor: '#fff',
     borderRadius: 2,
-    border: '1px solid #eee',
     fontSize: 14,
     color: '#404040',
   }
@@ -20,13 +18,15 @@ const styles = {
 const menuExample = (
   <Menu className={css(styles.dropdown)}>
     <Menu.Item>dropped</Menu.Item>
+    <Menu.Item>halo</Menu.Item>
+    <Menu.Item>what the u</Menu.Item>
   </Menu>
 )
 
 const DropdownExample = () =>
   <Showcase title="Dropdown">
     <Dropdown menu={menuExample}>
-      <Button plain>toggler</Button>
+      <Button plain block>click to trigger dropdown</Button>
     </Dropdown>
   </Showcase>
 

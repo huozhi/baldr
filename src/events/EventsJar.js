@@ -1,12 +1,8 @@
-import {Component, PropTypes} from 'react'
+import {Component} from 'react'
 
 const EVENT_REGEX = /^on\w+$/
 
 class EventsJar extends Component {
-  static propTypes = {
-    target: PropTypes.object,
-  }
-
   static defaultProps = {
     target: global.window,
   }

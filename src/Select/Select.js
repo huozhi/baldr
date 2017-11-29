@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import {findDOMNode} from 'react-dom'
 import cx from 'classnames'
 import Popover from '../Popover'
@@ -9,17 +9,6 @@ import {css} from 'emotion'
 import './Select.css'
 
 class Select extends Component {
-  static propTypes = {
-    id: PropTypes.string,
-    style: PropTypes.object,
-    bordered: PropTypes.bool,
-    disabled: PropTypes.bool,
-    renderOption: PropTypes.func,
-    options: PropTypes.array.isRequired,
-    title: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-  }
-
   static defaultProps = {
     renderOption: ({value, ...rest}) => (
       <Option {...rest} value={value} key={value} />
