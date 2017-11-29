@@ -146,7 +146,10 @@ const styles = {
   },
   item: {
     padding: 10,
-    borderTop: '1px solid #eee',
+
+    '&:not(:first-child)': {
+      borderTop: '1px solid #eee',
+    }
   },
   input: {
     flexGrow: 1,
@@ -154,6 +157,8 @@ const styles = {
     outline: 'none',
     display: 'block',
     padding: '10px 16px',
+    border: '1px solid rgba(0, 0, 0, .15)',
+    borderRadius: 2,
   },
 }
 

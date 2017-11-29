@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import cx from 'classnames'
 import {css} from 'emotion'
 import Arrow from '../Arrow'
 import {getOppositePlacement} from '../utils/direction'

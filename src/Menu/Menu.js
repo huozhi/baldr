@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 import {css} from 'emotion'
 
 const Menu = ({children, className}) => (

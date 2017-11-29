@@ -1,5 +1,4 @@
 import React from 'react'
-import cx from 'classnames'
 import {render} from 'react-dom'
 import styles from './app.css'
 import CardExample from './CardExample'
