@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, css} from 'aphrodite'
+import {css} from 'emotion'
 
 const KEY_MAP = {
   UP: 38,
@@ -90,7 +90,7 @@ class Autocomplete extends React.Component {
                 key={`item-${index}`}
                 className={css(
                   styles.item,
-                  activeIndex === index && styles.activeItem
+                  activeIndex === index && {backgroundColor: '#f5f5f5'}
                 )}
               >
                 {item.label}
@@ -103,7 +103,7 @@ class Autocomplete extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+const styles = {
   root: {
     position: 'relative',
     display: 'flex',
@@ -123,9 +123,6 @@ const styles = StyleSheet.create({
     zIndex: 10,
     boxSizing: 'border-box',
   },
-  activeItem: {
-    backgroundColor: '#f5f5f5',
-  },
   item: {
     padding: 10,
     borderTop: '1px solid #eee',
@@ -136,7 +133,7 @@ const styles = StyleSheet.create({
     display: 'block',
     padding: '10px 16px',
   },
-})
+}
 
 export default Autocomplete
 

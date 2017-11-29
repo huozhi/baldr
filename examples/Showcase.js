@@ -1,7 +1,7 @@
 import React from 'react'
-import {css, StyleSheet} from 'aphrodite'
+import {css} from 'emotion'
 
-const styles = StyleSheet.create({
+const styles = {
   demo: {
     margin: 'auto',
     padding: '24px 0 40px',
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     fontWeight: 500,
     marginBottom: 20,
   }
-})
+}
 
 const Showcase = ({title, children, className}) => (
   <div className={css(styles.demo, className)}>

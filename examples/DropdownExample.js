@@ -3,9 +3,9 @@ import Showcase from './Showcase'
 import Button from '../src/Button'
 import Dropdown from '../src/Dropdown'
 import Menu from '../src/Menu'
-import {StyleSheet, css} from 'aphrodite'
+import {css} from 'emotion'
 
-const styles = StyleSheet.create({
+const styles = {
   dropdown: {
     padding: '8px 16px',
     textAlign: 'center',
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#404040',
   }
-})
+}
 
 const menuExample = (
   <Menu className={css(styles.dropdown)}>
